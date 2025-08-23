@@ -1,0 +1,78 @@
+<!-- components/Footer.vue -->
+<template>
+    <footer>
+      <div class="group">
+        <!-- <p>
+          Designed & Developed in Portland with <a href="https://astro.build/">Astro</a>
+          <Icon icon="rocket-launch" size="1.2em" />
+        </p> -->
+        <p>&copy; {{ currentYear }} Sidney ADJOH</p>
+      </div>
+      <p class="socials">
+        <a href="https://twitter.com/me" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://github.com/me" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://codepen.io/me" target="_blank" rel="noopener noreferrer">CodePen</a>
+      </p>
+    </footer>
+  </template>
+  
+  <script setup lang="ts">
+ 
+  const currentYear = computed(() => new Date().getFullYear())
+  </script>
+  
+  <style scoped>
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: auto;
+    padding: 3rem 2rem 3rem;
+    text-align: center;
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+  }
+  
+  footer a {
+    color: var(--gray-400);
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+  
+  footer a:hover,
+  footer a:focus {
+    text-decoration-color: currentColor;
+  }
+  
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  @media (min-width: 50em) {
+    footer {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2.5rem 5rem;
+    }
+  
+    .group {
+      flex-direction: row;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  
+    .socials {
+      justify-content: flex-end;
+    }
+  }
+  </style>
