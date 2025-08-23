@@ -1,0 +1,49 @@
+<!-- components/ContactCTA.vue -->
+<template>
+    <aside>
+      <h2>Envie de collaborer avec moi ?</h2>
+      <CallToAction href="mailto:sidneyadjoh15@gmail.com">
+        Envoyez moi un message
+        <Icon icon="paper-plane-tilt" size="1.2em" />
+      </CallToAction>
+    </aside>
+  </template>
+  
+  <script setup lang="ts">
+  
+ 
+  </script>
+  
+  <style scoped>
+  aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    border-top: 1px solid var(--gray-800);
+    border-bottom: 1px solid var(--gray-800);
+    padding: 5rem 1.5rem;
+    background-color: var(--gray-999_40);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  h2 {
+    font-size: var(--text-xl);
+    text-align: center;
+    max-width: 15ch;
+  }
+  
+  @media (min-width: 50em) {
+    aside {
+      padding: 7.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    h2 {
+      font-size: var(--text-3xl);
+      text-align: left;
+    }
+  }
+  </style>

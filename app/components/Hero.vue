@@ -1,0 +1,60 @@
+<!-- components/Hero.vue -->
+<template>
+    <div :class="['hero stack gap-4', align]">
+      <div class="stack gap-2">
+        <h1 class="title">{{ title }}</h1>
+        <p v-if="tagline" class="tagline">{{ tagline }}</p>
+      </div>
+      <slot />
+    </div>
+  </template>
+  
+  <script setup lang="ts">
+  interface Props {
+    title: string
+    tagline?: string
+    align?: 'start' | 'center'
+  }
+  
+  withDefaults(defineProps<Props>(), {
+    align: 'center',
+    tagline: undefined
+  })
+  </script>
+  
+  <style scoped>
+  .hero {
+    font-size: var(--text-lg);
+    text-align: center;
+  }
+  
+  .title,
+  .tagline {
+    max-width: 37ch;
+    margin-inline: auto;
+  }
+  
+  .title {
+    font-size: var(--text-3xl);
+    color: var(--gray-0);
+  }
+  
+  @media (min-width: 50em) {
+    .hero {
+      font-size: var(--text-xl);
+    }
+  
+    .start {
+      text-align: start;
+    }
+  
+    .start .title,
+    .start .tagline {
+      margin-inline: unset;
+    }
+  
+    .title {
+      font-size: var(--text-5xl);
+    }
+  }
+  </style>
